@@ -1,3 +1,10 @@
 * git internal official reference:
 https://git-scm.com/book/en/v1/Getting-Started-Git-Basics
 
+Some important lines which interest me:
+--------------------------------------
+Git has three main states that your files can reside in: committed, modified, and staged.
+1. when we modify a file in our working directory, it is modified state.
+2. Now this modified file is moved to staged state using; git add <filename> command.
+3. Moved all staged files to Commited state using; git commit -m "why you changed the file". This command commit changes into your local database. You can move your changes to remote repo using; git push origin master;
+
