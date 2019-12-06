@@ -2,3 +2,10 @@
 To show metalic font; mostly use board information while connectiong through ssh.
 eg: toilet -f standard -F metal "Naseeb Panghal"
 
+2. systemd-cat
+To log into journalctl from any shell script
+eg:
+$ echo 'hello' | systemd-cat -t someapp -p emerg
+Is logged as:
+Feb 07 13:48:56 localhost.localdomain someapp[15278]: hello
+
