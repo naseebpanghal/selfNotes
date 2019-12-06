@@ -1,0 +1,4 @@
+1. toilet
+To show metalic font; mostly use board information while connectiong through ssh.
+eg: toilet -f standard -F metal "Naseeb Panghal"
+
