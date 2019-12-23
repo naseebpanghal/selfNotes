@@ -1,0 +1,11 @@
+
+#some settings -> self explanatory
+
+set shiftwidth=2
+set tabstop=2
+set expandtab
+colorscheme elflord
+set number
+
+/usr/share/vim/80vim/defaults.vim
+set mouse-=a to remove visual mode while highlighting text using mouse
