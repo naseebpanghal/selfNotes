@@ -3,7 +3,7 @@ include makefile.head
 all: $(DIR) $(TARGET)
 
 $(TARGET): $(OBJ_FILES)
-	$(CC) $(LDFLAGS) $(LIBS) $^ -o $@ 
+	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@ 
 	@rm -rf $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o: %.cpp
