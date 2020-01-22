@@ -1,0 +1,40 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FPS	mpi_dec.c	53;"	d	file:
+MAX_FRAMES	mpi_dec.c	52;"	d	file:
+MODULE_TAG	mpi_dec.c	29;"	d	file:
+READ_BUF_SIZE	mpi_dec.c	51;"	d	file:
+cond	mpi_dec.c	/^  pthread_cond_t cond;$/;"	m	struct:__anon1	file:
+crtc_height	mpi_dec.c	/^  int crtc_height;$/;"	m	struct:__anon1	file:
+crtc_id	mpi_dec.c	/^  uint32_t plane_id, crtc_id;$/;"	m	struct:__anon1	file:
+crtc_width	mpi_dec.c	/^  int crtc_width;$/;"	m	struct:__anon1	file:
+ctx	mpi_dec.c	/^  MppCtx          ctx;$/;"	m	struct:__anon2	file:
+display_thread	mpi_dec.c	/^void *display_thread(void *param)$/;"	f
+drm	mpi_dec.c	/^} drm;$/;"	v	typeref:struct:__anon1
+dump_mpp_frame_to_file	mpi_dec.c	/^int dump_mpp_frame_to_file(MppFrame frame, FILE *fp)$/;"	f
+fb_height	mpi_dec.c	/^  int fb_x, fb_y, fb_width, fb_height;$/;"	m	struct:__anon1	file:
+fb_id	mpi_dec.c	/^    int fb_id;$/;"	m	struct:__anon2::__anon3	file:
+fb_id	mpi_dec.c	/^  int fb_id;$/;"	m	struct:__anon1	file:
+fb_width	mpi_dec.c	/^  int fb_x, fb_y, fb_width, fb_height;$/;"	m	struct:__anon1	file:
+fb_x	mpi_dec.c	/^  int fb_x, fb_y, fb_width, fb_height;$/;"	m	struct:__anon1	file:
+fb_y	mpi_dec.c	/^  int fb_x, fb_y, fb_width, fb_height;$/;"	m	struct:__anon1	file:
+fd	mpi_dec.c	/^  int fd;$/;"	m	struct:__anon1	file:
+first_frame_ts	mpi_dec.c	/^  struct timespec first_frame_ts;$/;"	m	struct:__anon2	typeref:struct:__anon2::timespec	file:
+frame_thread	mpi_dec.c	/^void *frame_thread(void *param)$/;"	f
+frame_to_drm	mpi_dec.c	/^  } frame_to_drm[MAX_FRAMES];$/;"	m	struct:__anon2	typeref:struct:__anon2::__anon3	file:
+frm_eos	mpi_dec.c	/^  int frm_eos;$/;"	m	struct:__anon1	file:
+frm_grp	mpi_dec.c	/^  MppBufferGroup	frm_grp;$/;"	m	struct:__anon2	file:
+frm_height	mpi_dec.c	/^  RK_U32 frm_height;$/;"	m	struct:__anon1	file:
+frm_width	mpi_dec.c	/^  RK_U32 frm_width;$/;"	m	struct:__anon1	file:
+handle	mpi_dec.c	/^    uint32_t handle;$/;"	m	struct:__anon2::__anon3	file:
+main	mpi_dec.c	/^int main(int argc, char **argv)$/;"	f
+mpi	mpi_dec.c	/^  MppApi          *mpi;$/;"	m	struct:__anon2	file:
+mpi	mpi_dec.c	/^} mpi;$/;"	v	typeref:struct:__anon2
+mutex	mpi_dec.c	/^  pthread_mutex_t mutex;$/;"	m	struct:__anon1	file:
+plane_id	mpi_dec.c	/^  uint32_t plane_id, crtc_id;$/;"	m	struct:__anon1	file:
+prime_fd	mpi_dec.c	/^    int prime_fd;$/;"	m	struct:__anon2::__anon3	file:
+skipped_frames	mpi_dec.c	/^  int skipped_frames;$/;"	m	struct:__anon1	file:

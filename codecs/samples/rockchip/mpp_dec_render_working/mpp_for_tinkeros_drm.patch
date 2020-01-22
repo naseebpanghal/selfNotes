@@ -1,0 +1,69 @@
+diff --git a/mpp/base/mpp_buffer_impl.cpp b/mpp/base/mpp_buffer_impl.cpp
+index e58577b..c3d228b 100644
+--- a/mpp/base/mpp_buffer_impl.cpp
++++ b/mpp/base/mpp_buffer_impl.cpp
+@@ -635,7 +635,7 @@ MppBufferGroupImpl *MppBufferService::get_group(const char *tag, const char *cal
+ 
+ MppBufferGroupImpl *MppBufferService::get_misc_group(MppBufferMode mode, MppBufferType type)
+ {
+-    if (type == MPP_BUFFER_TYPE_NORMAL)
++    if (type != MPP_BUFFER_TYPE_ION)
+         return NULL;
+ 
+     mpp_assert(type == MPP_BUFFER_TYPE_ION);
+diff --git a/mpp/codec/dec/h264/h264d_api.c b/mpp/codec/dec/h264/h264d_api.c
+index 46a6337..431ef6c 100644
+--- a/mpp/codec/dec/h264/h264d_api.c
++++ b/mpp/codec/dec/h264/h264d_api.c
+@@ -489,13 +489,15 @@ MPP_RET h264d_prepare(void *decoder, MppPacket pkt, HalDecTask *task)
+     p_Inp->in_dts = mpp_packet_get_dts(pkt);
+ 
+     if (mpp_packet_get_eos(pkt)) {
+-        p_Inp->pkt_eos     = 1;
+-        p_Inp->has_get_eos = 1;
+         if (p_Inp->in_length < 4) {
+             h264d_reset(decoder);
+-            task->flags.eos = p_Inp->pkt_eos;
++			p_Inp->pkt_eos     = 1;
++            p_Inp->has_get_eos = 1;
++            task->flags.eos    = 1;
+             goto __RETURN;
+         }
++        p_Inp->pkt_eos     = 1;
++        p_Inp->has_get_eos = 1;
+         p_Inp->in_buf      = NULL;
+         p_Inp->in_length   = 0;
+ 
+diff --git a/mpp/codec/dec/h264/h264d_parse.c b/mpp/codec/dec/h264/h264d_parse.c
+index ee0caba..b6c0f8a 100644
+--- a/mpp/codec/dec/h264/h264d_parse.c
++++ b/mpp/codec/dec/h264/h264d_parse.c
+@@ -773,9 +773,9 @@ MPP_RET parse_prepare_extra_data(H264dInputCtx_t *p_Inp, H264dCurCtx_t *p_Cur)
+ 
+     p_Inp->task_valid = 0;
+     if (p_Inp->pkt_eos) {
++        ret = h264d_reset((void *)p_Inp->p_Dec);
+         p_Inp->task_eos = 1;
+-        p_Inp->task_valid = 0;
+-        return h264d_reset((void *)p_Inp->p_Dec);
++        return ret;
+     }
+     VAL_CHECK(ret, (p_Inp->nal_size > 0));
+     p_strm->curdata = &p_Inp->in_buf[p_strm->nalu_offset];
+diff --git a/mpp/mpp.cpp b/mpp/mpp.cpp
+index fe9f6b2..0ccaf5b 100644
+--- a/mpp/mpp.cpp
++++ b/mpp/mpp.cpp
+@@ -284,9 +284,10 @@ MPP_RET Mpp::get_frame(MppFrame *frame)
+                 }
+             } else
+                 mFrames->wait();
++        } else {
++            /* NOTE: this sleep is to avoid user's dead loop */
++            msleep(1);
+         }
+-        /* NOTE: this sleep is to avoid user's dead loop */
+-        msleep(1);
+     }
+ 
+     if (mFrames->list_size()) {

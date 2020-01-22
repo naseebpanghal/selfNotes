@@ -1,0 +1,14 @@
+#CC=gcc
+#CC=arm-linux-gnueabihf-gcc
+CC=aarch64-linux-gnu-gcc
+DIR=dir
+OBJ_DIR=obj
+BIN_DIR=.
+BIN_NAME=mpp_dec
+TARGET=$(BIN_DIR)/$(BIN_NAME)
+SRC=$(wildcard *.c)
+OBJ_FILES=$(SRC:%.c=$(OBJ_DIR)/%.o)
+
+LIBS= -lrockchip_mpp -lpthread 
+CFLAGS= -I/usr/include/rockchip
+LDFLAGS=
