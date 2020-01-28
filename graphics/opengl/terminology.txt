@@ -1,0 +1,26 @@
+1. Graphics Pipeline
+The process of transforming 3D coordinates to 2D pixels is managed by the graphics pipeline of OpenGL. The graphics pipeline can be divided into two large parts: the first transforms your 3D coordinates into 2D coordinates and the second part transforms the 2D coordinates into actual colored pixels.
+
+2. Shaders
+Shaders are small programs written in GLSL(OpenGL Shading Language) which run on GPU cores. There are mainly 3 types of shaders(ie. Vertext shaders, Geometry shaders, Fragment Shaders). Geometry shaders are optional and mainly default program shipped with GPU is used in most of the programming.
+
+3. Vertex
+It is a 3D cordinate defined in 3D plane(x,y,z axis)
+
+4. Vertex Data
+Collection of vertices mainly in array.
+
+5. Primitives
+it is a render type(GL_POINTS, GL_TRIANGLES and GL_LINE_STRIP) we want opengl to form with vertex data.
+
+6. normalized device coordinates(NDC)
+It is a small space where the x, y and z values vary from -1.0 to 1.0.
+
+7. vertex buffer objects (VBO)
+Vertex data is stored in memory on the GPU. We manage this memory via VBO ie. configure how OpenGL should interpret the memory and specify how to send the data to the graphics card
+
+8. vertex attributes
+This is part of Vertex shader. input vertex attributes are defined in shader using 'in' keyword
+
+9. Shader Program
+A shader program object is the final linked version of multiple shaders combined
