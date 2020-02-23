@@ -1,0 +1,2 @@
+
+1. Rather than including .h file, use forward declaration of class, until its really necessary
