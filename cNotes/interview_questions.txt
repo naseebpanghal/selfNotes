@@ -1,0 +1,2 @@
+Q. difference b/w C99 and GNU C?
+A: C99 is an ISO standard, latest is C17. whereas GNU C is a non-standard C provided by GNU compiler(GCC). To your surprise, linux kernel used non-standard C(ie.GNU C)
