@@ -12,3 +12,5 @@ Feb 07 13:48:56 localhost.localdomain someapp[15278]: hello
 3. systemd-analyze
 To check total time taken by system while booting.
 To break further time taken by services seperately use command 'systemd-analyze blame'
+
+4. find <path where to find> -name "*.[ch]" -exec diff -aurwp /home/ubuntu/personal/gstreamer/oss/{} {} \;
