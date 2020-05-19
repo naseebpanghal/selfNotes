@@ -7,7 +7,7 @@ set expandtab
 colorscheme elflord
 set number
 
-/usr/share/vim/80vim/defaults.vim
+/usr/share/vim/vim80/defaults.vim
 set mouse-=a to remove visual mode while highlighting text using mouse
 
 #Disable Auto-comment for current session of vim
