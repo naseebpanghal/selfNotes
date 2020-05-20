@@ -16,3 +16,6 @@ To break further time taken by services seperately use command 'systemd-analyze 
 4. find <path where to find> -name "*.[ch]" -exec diff -aurwp /home/ubuntu/personal/gstreamer/oss/{} {} \;
 5. find . -type f -print0 | xargs -0 dos2unix
 6. dpkg -l | grep vlc | awk '{print $2}' | xargs
+7. apt commands
+https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/
+
