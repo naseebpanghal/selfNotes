@@ -7,3 +7,8 @@ link: https://docs.fedoraproject.org/en-US/quick-docs/understanding-and-administ
 description: what is unit file under systemd terminology, how to create custom unit file or service.
 link: https://fedoramagazine.org/systemd-unit-dependencies-and-order/
 description: systemd tutorial series
+
+3. tag: cross-compilation with buildroot and QEMU
+link: https://dzone.com/articles/an-arm-image-with-buildroot
+link: https://dzone.com/articles/cross-compilation-with-buildroot?fromrel=true
+description: Above mentioned links are not tested. First test and verify
