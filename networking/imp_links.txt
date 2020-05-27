@@ -1,0 +1,2 @@
+1. IP renew 
+link: https://www.cyberciti.biz/faq/howto-linux-renew-dhcp-client-ip-address/
