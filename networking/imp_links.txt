@@ -1,2 +1,4 @@
 1. IP renew 
 link: https://www.cyberciti.biz/faq/howto-linux-renew-dhcp-client-ip-address/
+2. NetworkManager, ifconfig, ifup
+link: https://askubuntu.com/questions/1786/what-is-the-difference-between-network-manager-and-ifconfig-ifup-etc
