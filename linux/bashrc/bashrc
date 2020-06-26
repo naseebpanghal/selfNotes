@@ -1,5 +1,5 @@
 
-copy below lines into ~/.bashrc file to set the title of terminal
+1. copy below lines into ~/.bashrc file to set the title of terminal
 
 #function to set name of terminal
 function title() {
@@ -10,7 +10,7 @@ function title() {
   PS1=${ORIG}${TITLE}
 }
 
-Add below lines  in ~/.bashrc to avoid overwriting history from all opened terminal. 
+2. Add below lines  in ~/.bashrc to avoid overwriting history from all opened terminal. 
 # Avoid duplicates
 HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
@@ -18,3 +18,5 @@ shopt -s histappend
 
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+3. Next add here
