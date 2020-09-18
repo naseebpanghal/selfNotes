@@ -19,3 +19,6 @@ To break further time taken by services seperately use command 'systemd-analyze 
 7. apt commands
 https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/
 
+8. search and replace in multiple files using vim
+find . -type f -name '*.c' -exec grep -q 'picture_Release' {} \; -exec vim -c '%s/picture_Release/printf("****naseeb %s:%d\\n",__func__, __LINE__);picture_Release/gc' -c 'wq' {} \;
+
