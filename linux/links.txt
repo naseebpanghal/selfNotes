@@ -12,3 +12,7 @@ description: systemd tutorial series
 link: https://dzone.com/articles/an-arm-image-with-buildroot
 link: https://dzone.com/articles/cross-compilation-with-buildroot?fromrel=true
 description: Above mentioned links are not tested. First test and verify
+
+4. ssh key based authentication
+link: https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+description: Above link explain how to generate public/private key using ssh-keygen. Then store public key on server and copy private key on client machine /home/<username>/.ssh/
