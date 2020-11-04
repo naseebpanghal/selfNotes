@@ -21,4 +21,6 @@ https://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-packa
 
 8. search and replace in multiple files using vim
 find . -type f -name '*.c' -exec grep -q 'picture_Release' {} \; -exec vim -c '%s/picture_Release/printf("****naseeb %s:%d\\n",__func__, __LINE__);picture_Release/gc' -c 'wq' {} \;
+9. diff based on file extensions in a directory/sub-directory
+find . -name '*.[ch]' -exec diff -aurw {} ../final_vlc/vlc-3.0.10/{} \; > diff.patch
 
