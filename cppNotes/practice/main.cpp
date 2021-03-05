@@ -1,30 +1,25 @@
 #include <iostream>
-#include <memory>
 
-class A{
-  public:
-    //int a{10};
-    A(){std::cout << "A\n";}
-    ~A(){std::cout << "~A\n";}
-    A(const A&)=delete; //copy cons
-    A& operator=(const A&)=delete; // copy ass
-    A(A&&){std::cout << "move\n";} // move con
-    A& operator=(A&& other){ // move ass
-      std::cout << "move ass\n";
-      return other;
-    }
+template <typename T>
+void my_func(T t)
+{
+//  std::cout << "value passed is: " << t << std::endl;
+}
+template <typename T> struct value 
+{
+  T t;
 };
 
-auto func(A a)
+struct another
 {
-  //std::cout << a.a << '\n';
-  //return std::move(a);    
-  return a;
-}   
+  int j;
+  char *k;
+  struct value<int> t;
+};
 int main()
-{   
-  A a;
-  //std::cout << a.a << '\n';
-  a = func(std::move(a));
-  //std::cout << a.a << '\n';
-}  
+{
+  struct value<int> temp{10};
+  struct another other{5,"naseeb Panghal",7}; 
+  my_func(temp);
+  return 0;
+}
