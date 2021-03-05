@@ -10,5 +10,5 @@ SRC=main.cpp
 OBJ_FILES=$(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 LIBS= 
-CFLAGS= -std=c++14
+CFLAGS=-g -O0 -std=c++14
 LDFLAGS=
