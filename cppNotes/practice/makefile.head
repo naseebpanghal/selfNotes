@@ -6,7 +6,8 @@ BIN_DIR=.
 BIN_NAME=sample
 TARGET=$(BIN_DIR)/$(BIN_NAME)
 #SRC=$(wildcard *.cpp)
-SRC=main.cpp
+#SRC=main.cpp
+#SRC=
 OBJ_FILES=$(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 LIBS= 
