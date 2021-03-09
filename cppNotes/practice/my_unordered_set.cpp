@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unordered_set>
-#include <algorithm>
 
 
 int insert_set(std::unordered_set<int> &myset, int &&val)
@@ -22,21 +21,12 @@ int main()
 
   //for(std::set<int>::iterator it = myset.begin(); it != myset.end(); it++) std::cout << it << std::endl;
   //for(auto it = myset.begin(); it != myset.end(); it++) std::cout << it << std::endl;
+  //range loop
   for(auto it: myset) std::cout << it << std::endl;
-
-  for_each(myset.begin(), myset.end(), [](const int val) 
-      {
-      std::cout << "value: " << val << std::endl;
-      }
-      );
-
 
   auto value = myset.find(7);
   if(value != myset.end()) std::cout << "Value found: " << *value << std::endl;
   else std::cout << "Value not found" << std::endl;
 
-  
-
-  for(auto it: myset) std::cout << it << std::endl;
   return 0;
 }
