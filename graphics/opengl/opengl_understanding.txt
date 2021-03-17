@@ -1,0 +1,85 @@
+
+
+      glUseProgram(0);
+      glUseProgram(m_programNV12_id);
+      glEnableVertexAttribArray ( m_positionNV12_loc);
+      glEnableVertexAttribArray ( m_text_coordNV12_loc);
+      glPixelStorei ( GL_UNPACK_ALIGNMENT, 1 );
+
+      glUniform1i ( m_lumaNV12_loc, 0 );
+      glUniform1i ( m_chromaNV12_b_loc, 1 );
+	  
+	  glBindTexture(GL_TEXTURE_2D, m_texture[0]);
+	  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, (aLumaSize), tex_height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, aLumaPtr);
+	  glUniform1i ( m_lumaNV12_loc, 0 );
+	  glBindTexture(GL_TEXTURE_2D, m_texture[1]);
+	  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE_ALPHA, (aChromaBSize), tex_height/2, 0, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, aChromaBPtr);
+	  glUniform1i ( m_chromaNV12_b_loc, 1 );
+	  
+	  //Rendering Part
+	  glVertexAttribPointer ( m_positionNV12_loc, 3, GL_FLOAT,
+          GL_FALSE, 3 * sizeof(GLfloat), vVertices );
+      tex_loc = m_text_coordNV12_loc;
+	  glVertexAttribPointer ( tex_loc, 2, GL_FLOAT,
+          GL_FALSE, 2 * sizeof(GLfloat), vTex0);
+		  
+	  glActiveTexture ( GL_TEXTURE0 );
+	  glBindTexture(GL_TEXTURE_2D, m_texture[0]);
+	  
+	  glActiveTexture ( GL_TEXTURE1 );
+	  glBindTexture(GL_TEXTURE_2D, m_texture[1]);
+	  glDrawElements ( GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices );
+  glBindTexture(GL_TEXTURE_2D, 0);
+	
+Taking notes from YUV420 rendering. This image format contains 3 component. i.e U anv V are seperate array of pixels.
+* vertex shader and fragment shader code is written in GL Shader Language(GLSL). Although some vendor provide extension to use other languages(i don't know which)
+
+* Create shader using glCreateShader using type: GL_VERTEX_SHADER, GL_FRAGMENT_SHADER
+* Pass GLSL source code to shader using glShaderSource
+* Compile GLSL source code using glCompileShader
+* Get the compilation status using glGetShaderiv(GL_COMPILE_STATUS)
+
+* Create program using glCreateProgram and get the program id.
+* Attach vertex shader with program glAttachShader(program_id, v_shader_id);
+* Attach fragment shader with program using glAttachShader(program_id, f_shader_id);
+* Link program using glLinkProgram(program_id);
+* Get the link status using glGetProgramiv(GL_LINK_STATUS) 
+
+* Get Attribute locations from vertex shader, ie. position and texture cordinates
+* Get the sampler locations from fragment shader, i.e s_Y, s_U, s_V
+
+* Generate Textures using glGenTextures(3, m_texture);
+
+* Load Image on Textures
+	- Enable Vertex Attribute and Sampler
+	  glEnableVertexAttribArray ( m_position_loc);
+      glEnableVertexAttribArray ( m_text_coord_loc);
+      glPixelStorei ( GL_UNPACK_ALIGNMENT, 1 );
+	- Bind a named texture to a texturing target. First parameter is texturing target whereas second parameter is the name of the texture.
+	  glBindTexture(GL_TEXTURE_2D, m_texture[0]);
+	- specify a two-dimensional texture image
+	  glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, (aLumaSize), tex_height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, aLumaPtr);
+	- Specify the value of a uniform variable for the current program object
+      glUniform1i ( m_luma_loc, 0 );
+      glUniform1i ( m_chroma_b_loc, 1 );
+      glUniform1i ( m_chroma_r_loc, 2 );  
+	  
+	- Repeat above steps for all the textures: m_texture[1], m_texture[2]
+	  
+	  
+* Render the image
+	- Copy position(range: -1 to 1) and texture cordinates(range: 0 to 1). Texture cordinates are used for rotation.
+	  glVertexAttribPointer ( m_position_loc, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), vVertices );
+	  glVertexAttribPointer ( m_text_coord_loc, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), vTex0);
+	  
+	- Activate Textures and draw image on the framebuffer.
+	  glActiveTexture ( GL_TEXTURE0 );
+	  glBindTexture(GL_TEXTURE_2D, m_texture[0]);
+	  glActiveTexture ( GL_TEXTURE1 );
+	  glBindTexture(GL_TEXTURE_2D, m_texture[1]);
+      glActiveTexture ( GL_TEXTURE2 );
+      glBindTexture(GL_TEXTURE_2D, m_texture[2]);
+	  glDrawElements ( GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, indices );
+	  
+
+	  
