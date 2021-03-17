@@ -1,0 +1,11 @@
+
+1. 
+int&& var1 = 5;
+
+ Here,
+ - "var1" itself is a l-value, as its address can be taken or in other words, var1 is mapped with a memory location where it will hold some value(which is 5 in our example).
+ - "Type of" var1 is r-value reference, var1 is NOT r-value reference.
+ - literal "5" is a r-value.
+
+
+* Interpret l-value as a "name" given to a memory address/location.
