@@ -1,4 +1,8 @@
 
+#############################################
+#References
+#############################################
+
 1. 
 int&& var1 = 5;
 
@@ -9,3 +13,4 @@ int&& var1 = 5;
 
 
 * Interpret l-value as a "name" given to a memory address/location.
+* Remember that “&&” indicates a universal reference ONLY where type deduction takes place.  Where there’s no type deduction, there’s no universal reference.  In such cases, “&&” in type declarations always means rvalue reference.
