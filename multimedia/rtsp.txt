@@ -1,0 +1,41 @@
+##############################
+# RTSP
+#############################
+default rtsp server port: 554
+------------------------
+
+* The default transport layer port number is 554 for both TCP and UDP, the latter being rarely used for the control requests.
+
+Control Requests:
+----------------
+* OPTIONS:
+C->S:  OPTIONS rtsp://example.com/media.mp4 RTSP/1.0
+       CSeq: 1
+       Require: implicit-play
+       Proxy-Require: gzipped-messages
+
+S->C:  RTSP/1.0 200 OK
+       CSeq: 1
+       Public: DESCRIBE, SETUP, TEARDOWN, PLAY, PAUSE
+
+* DESCRIBE
+* SETUP
+* PLAY
+* PAUSE
+* RECORD
+* ANNOUNCE
+* TEARDOWN
+* GET_PARAMETER
+* SET_PARAMETER
+
+
+what is SDP?
+SDP: Session Description Protocol
+- Describe the session between client and server endpoints
+
+* media streaming from the server to a client (Video On Demand) or from a client to the server (Voice Recording).
+
+
+RTP: 
+* The transmission of streaming data itself is not a task of RTSP. Most RTSP servers use the Real-time Transport Protocol (RTP) in conjunction with Real-time Control Protocol (RTCP) for media stream delivery.
+* RTP applications can use the Transmission Control Protocol (TCP), but most use the User Datagram protocol (UDP) instead because UDP allows for faster delivery of data.
