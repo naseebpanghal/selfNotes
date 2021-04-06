@@ -1,0 +1,14 @@
+Adaptive Bitrate:
+
+Q: How ABR is implemented: 
+A: When a video file is encoded to adaptive format, it is broken up into segments. These are short snippets of video, often set to 4 seconds long (although they can be longer or shorter). At the end of each 4-second segment, the Player can switch to a different video file if necessary.
+
+For example, 
+format 1 = stream with Resolution 1920x1080
+format 2 = stream with Resolution 1280x720
+
++----------------------+     +----------------------+     +----------------------+     +----------------------+     +----------------------+      
+| Segment with format1 | --> | Segment with format2 | --> | Segment with format2 | --> | Segment with format1 | --> | Segment with format2 |
++----------------------+     +----------------------+     +----------------------+     +----------------------+     +----------------------+      
+
+Never think that formats can be interleaved within the stream, for player to switch between formats based on some situation. Rather at any particular instant only single format will be present which will be switched to another based on the situation as shown above in the diagram.
