@@ -1,0 +1,1 @@
+* WebRTC wins the race when it comes to low-latency streaming, it isn’t without limitations. The technology was designed for one-to-few broadcasts and thus needs to be customized for large-scale deployments.
