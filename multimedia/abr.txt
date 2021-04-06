@@ -12,3 +12,7 @@ format 2 = stream with Resolution 1280x720
 +----------------------+     +----------------------+     +----------------------+     +----------------------+     +----------------------+      
 
 Never think that formats can be interleaved within the stream, for player to switch between formats based on some situation. Rather at any particular instant only single format will be present which will be switched to another based on the situation as shown above in the diagram.
+
+
+Q: How bitrate is selected?
+A: First, the client downloads a manifest file that describes the available stream segments and their respective bit rates. During stream start-up, the client usually requests the segments from the lowest bit rate stream. If the client finds that the network throughput is greater than the bit rate of the downloaded segment, then it will request a higher bit rate segment. Later, if the client finds that the network throughput has deteriorated, it will request a lower bit rate segment. An adaptive bitrate (ABR) algorithm in the client performs the key function of deciding which bit rate segments to download, based on the current state of the network.
