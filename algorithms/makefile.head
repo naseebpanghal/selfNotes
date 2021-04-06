@@ -1,0 +1,14 @@
+CC=g++
+#CC=arm-linux-gnueabihf-gcc
+DIR=dir
+OBJ_DIR=obj
+BIN_DIR=.
+BIN_NAME=sample
+TARGET=$(BIN_DIR)/$(BIN_NAME)
+#SRC=$(wildcard *.cpp)
+SRC=main.cpp
+OBJ_FILES=$(SRC:%.cpp=$(OBJ_DIR)/%.o)
+
+LIBS= 
+CFLAGS=-g -O0 -std=c++14
+LDFLAGS=
