@@ -3,3 +3,6 @@ link: https://jichu4n.com/posts/how-x-window-managers-work-and-how-to-write-one-
 
 2. linux graphics stack
 link: https://blogs.igalia.com/itoral/2014/07/29/a-brief-introduction-to-the-linux-graphics-stack/
+
+3. Graphics Card/Video Card/Display Card
+link: https://www.javatpoint.com/what-is-a-video-card#:~:text=RAMDAC%20converts%20the%20image%20to,or%20RAM%20is%20much%20faster.
