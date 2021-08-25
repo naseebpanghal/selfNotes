@@ -24,3 +24,5 @@ find . -type f -name '*.c' -exec grep -q 'picture_Release' {} \; -exec vim -c '%
 9. diff based on file extensions in a directory/sub-directory
 find . -name '*.[ch]' -exec diff -aurw {} ../final_vlc/vlc-3.0.10/{} \; > diff.patch
 
+10. mount network location
+sudo mount -t cifs -o username=<username>,password=<password>,vers=3.0 //<ip address>/path destination_path
