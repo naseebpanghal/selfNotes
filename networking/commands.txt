@@ -1,0 +1,3 @@
+sudo tcpdump -i eth0 'host 192.168.1.40 and port 8999'
+
+and \(host 169.144.0.10 and host 169.144.0.20\)
