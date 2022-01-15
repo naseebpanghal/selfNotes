@@ -1,0 +1,3 @@
+
+vaPutSurface crash in Ubuntu 20.04 default driver
+https://github.com/intel/media-driver/issues/1132
