@@ -1,0 +1,84 @@
+
+When VLC play network files via https url, VLC asks user to add certificate using dialog boxes. Here in this project those dialog boxes are avoided and application adds certificates sliently.
+
+Steps For Linux:
+---------------
+Follow below steps to update libgnutls_plugin.so:
+1. Donwload vlc source matching to vlc on your system from below link:
+url: http://download.videolan.org/pub/videolan/vlc/
+
+2. go to vlc source directory and take changes from svn gnutls.c into currently downloaded oss file
+
+3. run configure command. I used below configure command due to lack of dependent packages on my system.
+./configure --disable-lua --disable-a52 --disable-mad --enable-shared --enable-gnutls
+
+4. make
+
+Note:
+* libgnutls_plugin.so is built in directory ./modules/misc/.libs/
+* gnutls.c file checked into svn is taken from vlc source vlc-2.2.4
+
+
+Steps For Windows:
+-----------------
+To update plugin for windows, we have to cross compile vlc.
+Follow below steps on Ubuntu machine. Below steps are written for 32-bit cross-compilation. Although same will work of 64 bit cross-compilation as well.
+
+1. First step is to install docker on machine. 
+	$ sudo apt update
+	$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+		* replace bionic(18.04) with xenial for 16.04
+	$ sudo apt update
+	$ sudo apt install docker-ce
+	$ sudo systemctl status docker
+		* This should show docker service is in active state.
+	
+	Docker is ready on your machine.
+
+2. Thanks to vlc community for providing docker for cross-compilation. Lets fetch one for our purpose.
+	$ sudo docker pull registry.videolan.org:5000/vlc-debian-win32
+
+3. cd ~
+4. mkdir win32 && cd win32 
+5. Download vlc-3.0.5.tar.xz(You must be smart enough where to download it from) and untar the file under ~/win32.
+6. update gnutls.c as mentioned in step 2 for Linux.
+7. For win32: 
+	sudo docker run -v ~/win32:/win64 -i -t registry.videolan.org:5000/vlc-debian-win32 /bin/bash (...you will now be running the build environment from a docker container as root)
+   For win64:
+   sudo docker run -v ~/win64:/win64 -i -t registry.videolan.org:5000/vlc-debian-win64 /bin/bash
+8. apt-get update (updates the docker repositories)
+9. apt-get install python (installs python on the docker image. Needed to compile Qt stuff later)
+10. cd win64/vlc-3.0.5
+11. mkdir -p contrib/win32
+12. cd contrib/win32
+13. For win32:
+	../bootstrap --host=i686-w64-mingw32 --disable-protobuf
+	For win64:
+    ../bootstrap --host=x86_64-w64-mingw32 --disable-protobuf
+14. make - (Notice hyphen in the command. This command will take around 5-6 hours)
+	* If you find any error during compiling gcrypt dependency then apply below patch in configure.ac file under gcrypt directory and run the command 'make -' again.
++- m4_esyscmd([git rev-parse --short HEAD | tr -d '\n\r']))
+++ m4_esyscmd([(git rev-parse --short HEAD || printf '0') | tr -d '\n\r']))
+
+	* If face error in x265 then move src/x265/rules.mak out of the package to some other place.
+
+15. cd ../../
+16. ./bootstrap
+17. For win32:
+	mkdir win32 && cd win32
+	For win64:
+    mkdir win64 && cd win64
+18. For win32:
+	../extras/package/win32/configure.sh --host=i686-w64-mingw32 --build=x86_64-pc-linux-gnu
+	For win64:
+    ../extras/package/win32/configure.sh --host=x86_64-w64-mingw32 --build=x86_64-pc-linux-gnu
+19. make
+
+Note:
+* libgnutls_plugin.dll is built in directory ./modules/.libs/
+
+Reference:
+https://forum.videolan.org/viewtopic.php?t=146175&msclkid=d3e845f3b58d11ecaba031c2d422cfb3
+https://wiki.videolan.org/Win32Compile/#:~:text=To%20compile%20VLC%20for%20Windows%20%2832-bits%20or%2064-bits%29%2C,g%2B%2B-mingw-w64-i686%20mingw-w64-tools%20For%20the%2064-bit%20version%2C%20this%20becomes%3A?msclkid=528ee2bcb58c11ec95394462194c7274
