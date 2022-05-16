@@ -1,0 +1,17 @@
+* download ubuntu-bionic source code from ubuntu repositries (for eg: git://kernel.ubuntu.com/ubuntu/ubuntu-bionic.git) For more information refer ubuntu wiki pages.
+* Create new branch on tag respenctive to your kernel requirement. (for this I created branch go2-5.3.0-40, tag: Ubuntu-hwe-5.3.0-40.32_18.04.1)
+* compile i915 display driver using following commands sequentially (run commands under home directory of the package)
+  $ fakeroot debian/rules clean
+  $ make prepare scripts
+  $ make -j$(nproc) KERNELVERSION=5.3.0-40-lowlatency M=drivers/gpu/drm/i915
+  
+  
+  Script to update driver into kernel:
+  #!/bin/sh
+
+  echo "search extradrivers" | tee /etc/depmod.d/00-extra.conf
+  mkdir -p /lib/modules/`uname -r`/extradrivers/gpu/drm/i915
+  cp /home/<username>/deb-pack/18.04/displaydriver/i915.ko /lib/modules/`uname -r`/extradrivers/gpu/drm/i915/
+  depmod
+  update-initramfs -u
+
