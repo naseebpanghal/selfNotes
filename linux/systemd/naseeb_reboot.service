@@ -1,0 +1,11 @@
+[Unit]
+Description=naseeb script
+DefaultDependencies=no
+Before=reboot.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/naseeb/naseebrebootserver.sh
+
+[Install]
+WantedBy=reboot.target
