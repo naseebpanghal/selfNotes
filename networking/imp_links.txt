@@ -4,4 +4,5 @@ link: https://www.cyberciti.biz/faq/howto-linux-renew-dhcp-client-ip-address/
 link: https://askubuntu.com/questions/1786/what-is-the-difference-between-network-manager-and-ifconfig-ifup-etc
 3. static IP, auto vs allow-hotplug
 link: https://lists.debian.org/debian-user/2017/09/msg00911.html
-
+4. Block all URLs(Blacklist) and allow few(whitelist)
+link: https://askubuntu.com/questions/1167713/how-to-block-all-urls-except-few
