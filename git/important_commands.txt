@@ -1,0 +1,5 @@
+1. list only tracked files in repository
+git ls-tree -r  master --name-only
+
+2. check status and show only tracked files changes
+git status -uno
