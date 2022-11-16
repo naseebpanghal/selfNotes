@@ -1,0 +1,13 @@
+CC=g++
+#CC=arm-linux-gnueabihf-gcc
+DIR=dir
+OBJ_DIR=obj
+BIN_DIR=.
+BIN_NAME=server
+TARGET=$(BIN_DIR)/$(BIN_NAME)
+SRC=$(wildcard *.cpp)
+OBJ_FILES=$(SRC:%.cpp=$(OBJ_DIR)/%.o)
+
+LIBS= 
+CFLAGS= -std=c++14
+LDFLAGS=
