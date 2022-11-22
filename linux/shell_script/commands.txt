@@ -1,0 +1,1 @@
+for i in $(dpkg -l | grep ssh | awk '{print $2}' | xargs); do  echo "naseeb: $i"; done
