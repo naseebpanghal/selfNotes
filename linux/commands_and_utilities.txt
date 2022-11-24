@@ -26,3 +26,6 @@ find . -name '*.[ch]' -exec diff -aurw {} ../final_vlc/vlc-3.0.10/{} \; > diff.p
 
 10. mount network location
 sudo mount -t cifs -o username=<username>,password=<password>,vers=3.0 //<ip address>/path destination_path
+
+11. export AWS EC2 instance into VMDK format, to make Virtual Box VM.
+aws ec2 export-image --image-id ami-0f8e745a5bea8859c --disk-image-format VMDK --s3-export-location S3Bucket=testubuntu22,S3Prefix=exports/
