@@ -1,0 +1,12 @@
+CC=g++
+DIR=dir
+OBJ_DIR=obj
+BIN_DIR=.
+BIN_NAME=test
+TARGET=$(BIN_DIR)/$(BIN_NAME)
+SRC=$(wildcard *.cpp)
+OBJ_FILES=$(SRC:%.cpp=$(OBJ_DIR)/%.o)
+
+CFLAGS=-std=c++17
+LDFLAGS=
+LIBS=
