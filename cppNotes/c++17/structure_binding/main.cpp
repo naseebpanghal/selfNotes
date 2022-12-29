@@ -1,4 +1,5 @@
 #include <utility>
+#include <map>
 #include <iostream>
 
 using namespace std;
@@ -18,8 +19,15 @@ auto func()
 
 int main()
 {
+	//structure binding
 	auto [ myBase, myInt ] = func();
 	std::cout << "myBase::val: " << myBase.val << std::endl;
+
+	std::map<string, int> studentMarks = { {"naseeb", 80}, {"mahi", 95}};
+	for(auto [key, value] : studentMarks)
+	{
+		std::cout << "Name: " << key << " Marks: " << value << std::endl;
+	}
 	return 0;
 }
 
