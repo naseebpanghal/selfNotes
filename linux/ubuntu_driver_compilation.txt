@@ -4,7 +4,7 @@
   
   $ git clone git://kernel.ubuntu.com/ubuntu/ubuntu-bionic.git
   $ git checkout Ubuntu-hwe-5.3.0-40.32_18.04.1 -b version-5.3.0-40
-  $ make menuconfig => Just exit & Save
+  $ make menuconfig => keep pressing Enter to use default
   $ make prepare scripts
   $ make -j$(nproc) KERNELVERSION=5.3.0-40-lowlatency M=drivers/gpu/drm/i915
   
