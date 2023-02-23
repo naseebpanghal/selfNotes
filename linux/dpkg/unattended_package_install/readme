@@ -1,0 +1,21 @@
+#non-interactive/unattended package update on ubuntu
+
+* all the questions asked during installation or uninstallation can be fed to dpkg through dpkgconf 
+
+for example:
+# uninstallation
+sudo debconf-set-selections <<< "mysql-server-5.7 mysql-server-5.7/postrm_remove_databases boolean true"
+sudo dpkg -P --force-depends mysql-server-5.7
+
+
+# installation
+sudo debconf-set-selections <<< "mysql-community-server mysql-community-server/root-pass password w0wAdm1n8"
+sudo debconf-set-selections <<< "mysql-community-server mysql-community-server/re-root-pass password w0wAdm1n8"
+sudo debconf-set-selections <<< "mysql-community-server mysql-server/default-auth-override select Use Legacy Authentication Method (Retain MySQL 5.x Compatibility)"
+sudo dpkg -i mysql-community-server_8.0.32-1ubuntu18.04_amd64.deb
+
+
+Now, interesting quesition is "How to get these root-pass/re-root-pass/default-auth-override tag?"
+* deb package contains template file within it. One is committed in this repo for reference.
+* extract deb package using command "dpkg-deb --raw-extract package_name.deb ." 
+* open DEBIAN/template file, find your respective tags like Template, Type, select type, and use above command for default answer to be used during dpkg installation.
