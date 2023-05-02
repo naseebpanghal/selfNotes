@@ -1,0 +1,5 @@
+pactl list sink-inputs
+pactl list sinks | grep -e Name
+
+pacmd list-sinks
+pacmd set-default-sink 1
