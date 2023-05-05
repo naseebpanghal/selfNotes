@@ -17,3 +17,6 @@ int&& var1 = 5;
 
 2. 
 When a const lvalue reference is bound to a temporary object, the lifetime of the temporary object is extended to match the lifetime of the reference.
+3. 
+* by default, type deduction will drop const qualifiers
+* In addition to dropping const qualifiers, type deduction will also drop references
