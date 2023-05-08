@@ -21,3 +21,5 @@ description: Above link explain how to generate public/private key using ssh-key
 link: https://linuxize.com/post/how-to-install-virtualbox-guest-additions-in-ubuntu/
 key point: before running guest additions, run sudo apt install build-essential dkms linux-headers-$(uname -r)
 
+6. check/monitor memory usage
+link: https://linuxhint.com/check_linux_memory_usage/
