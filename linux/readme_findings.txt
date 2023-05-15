@@ -7,3 +7,8 @@ Above command will install all the required packages for a desktop.
 
 3. git merge vs rebase explained
 https://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase
+
+4. for system daemon debugging
+By adding systemd.debug-shell=1 to the kernel command line, a root shell will be available on TTY9 (crlt+alt+F9) to run the command above.
+and run 
+$ systemctl list-jobs
