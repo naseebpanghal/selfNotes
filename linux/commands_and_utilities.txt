@@ -32,3 +32,7 @@ aws ec2 export-image --image-id ami-0f8e745a5bea8859c --disk-image-format VMDK -
 
 12. extract files from debian packages
 dpkg-deb --raw-extract package_name.deb .
+
+13. Get GPU/Graphics card details
+* lspci | grep VGA
+* sudo lshw -C video
