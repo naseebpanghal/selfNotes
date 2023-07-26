@@ -1,0 +1,3 @@
+* steps you can follow to verify the integrity of your system after using APT OR anytime you are worried about system integrity
+  - sudo apt-get check
+  - sudo apt-get --simulate upgrade
