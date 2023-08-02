@@ -1,1 +1,8 @@
-for i in $(dpkg -l | grep ssh | awk '{print $2}' | xargs); do  echo "naseeb: $i"; done
+* for i in $(dpkg -l | grep ssh | awk '{print $2}' | xargs); do  echo "naseeb: $i"; done
+* read n character from a variable in shell
+  for i in $ifaceList 
+  do
+    # iFaceName_2char will contain initial 2 character from variable 'i'
+	  iFaceName_2char=${i:0:2}
+    echo iFaceName 
+  done
