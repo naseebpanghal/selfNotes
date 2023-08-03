@@ -19,4 +19,6 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-3. Next add here
+3. Set the terminal prompt in Ubuntu to show only the working directory name instead of its full path
+  - Find where your PS1 variable is set and change \w to \W.
+  - This must be in your .bashrc file
