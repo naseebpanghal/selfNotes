@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/MathFunctions/mysqrt.cxx
+mysqrt.h
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/MathFunctions/mysqrt.h
+iostream
+-
+
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/MathFunctions/mysqrt.h
+

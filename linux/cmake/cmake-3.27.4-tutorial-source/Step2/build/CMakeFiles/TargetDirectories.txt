@@ -1,0 +1,7 @@
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/build/CMakeFiles/rebuild_cache.dir
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/build/CMakeFiles/Tutorial.dir
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/build/CMakeFiles/edit_cache.dir
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/build/MathFunctions/CMakeFiles/rebuild_cache.dir
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/build/MathFunctions/CMakeFiles/edit_cache.dir
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/build/MathFunctions/CMakeFiles/MathFunctions.dir
+/home/naseeb/personal/selfNotes/linux/cmake/cmake-3.27.4-tutorial-source/Step2/build/MathFunctions/CMakeFiles/SqrtLibrary.dir

@@ -1,0 +1,12 @@
+CC=gcc
+DIR=dir
+OBJ_DIR=obj
+BIN_DIR=.
+BIN_NAME=test
+TARGET=$(BIN_DIR)/$(BIN_NAME)
+SRC=$(wildcard *.c)
+OBJ_FILES=$(SRC:%.c=$(OBJ_DIR)/%.o)
+
+CFLAGS=`pkg-config --cflags gstreamer-1.0`
+LDFLAGS=
+LIBS=`pkg-config --libs gstreamer-1.0`
