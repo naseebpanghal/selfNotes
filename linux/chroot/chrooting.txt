@@ -1,0 +1,20 @@
+configure chroot environment
+* download base image from ubuntu website
+* extract that into a directory 
+	eg: 
+	$ mkdir ubuntu-custom-image
+	$ tar xf ubuntu-base-image.tar.xz -C ubuntu-custom-image/
+* run below commands from host: This commands mounts host filesystem on chroot environment
+	$ sudo mount -t proc /proc/ ubuntu-custom-image/proc
+	$ sudo mount -t bind /sys/ ubuntu-custom-image/sys
+	$ sudo mount -o bind /sys/ ubuntu-custom-image/sys
+	$ sudo mount -o bind /dev/ ubuntu-custom-image/dev
+	$ sudo mount --make-rslave ubuntu-custom-image/sys
+	$ sudo mount --make-rslave ubuntu-custom-image/dev/
+	$ sudo mount -o bind /dev/pts ubuntu-custom-image/dev/pts
+	$ sudo mount -o bind /tmp ubuntu-custom-image/tmp
+   
+* copy /etc/resolv.conf content into ubuntu-custom-image/etc/resolv.conf
+	- if vi/vim is not present  use echo "<<required data>>" >> ubuntu-custom-image/etc/resolv.conf
+* sudo chroot ubuntu-custom-image/
+	- Now you are into chroot environment; consider it a fresh machine, you can add new user here; add that to sudo group
