@@ -6,7 +6,6 @@ configure chroot environment
 	$ tar xf ubuntu-base-image.tar.xz -C ubuntu-custom-image/
 * run below commands from host: This commands mounts host filesystem on chroot environment
 	$ sudo mount -t proc /proc/ ubuntu-custom-image/proc
-	$ sudo mount -t bind /sys/ ubuntu-custom-image/sys
 	$ sudo mount -o bind /sys/ ubuntu-custom-image/sys
 	$ sudo mount -o bind /dev/ ubuntu-custom-image/dev
 	$ sudo mount --make-rslave ubuntu-custom-image/sys
