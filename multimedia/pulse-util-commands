@@ -3,3 +3,8 @@ pactl list sinks | grep -e Name
 
 pacmd list-sinks
 pacmd set-default-sink 1
+
+# To mute the default microphone, use: 
+pacmd set-source-mute <index> 1 
+# To unmute the default microphone, use: 
+pacmd set-source-mute <index> 0
