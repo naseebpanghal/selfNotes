@@ -1,0 +1,11 @@
+In an ISO file, the Master Boot Record (MBR) is a small data structure located at the beginning of the file. The MBR typically consists of 512 bytes, and it plays a critical role in the boot process of a computer or virtual machine when the ISO file is used to create a bootable CD, DVD, or USB drive. The MBR contains information about the file system and the boot loader.
+
+The MBR structure is as follows:
+
+Bootstrap Code (446 bytes): The first 446 bytes of the MBR contain machine code instructions known as the "bootstrap code" or "boot code." This code is executed during the boot process and is responsible for locating and loading the boot loader.
+
+Partition Table (64 bytes): The remaining 64 bytes of the MBR are allocated for the partition table, which can hold up to four entries. Each entry describes a partition on the storage device. Each entry is 16 bytes long and includes information such as the starting sector, partition size, and partition type.
+
+So, the 66 bytes after the MBR are part of the partition table, and this table provides information about the partition layout on the storage device. These partition entries are essential for the system to understand the structure of the storage device and to boot from it when it's a bootable ISO.
+
+It's worth noting that not all ISO files have this full MBR structure. ISO files primarily designed for optical discs may not include an MBR because optical discs use a different boot process. Bootable ISO files for USB drives or virtual machines are more likely to contain an MBR structure.
