@@ -1,4 +1,5 @@
-In an ISO file, the Master Boot Record (MBR) is a small data structure located at the beginning of the file. The MBR typically consists of 512 bytes, and it plays a critical role in the boot process of a computer or virtual machine when the ISO file is used to create a bootable CD, DVD, or USB drive. The MBR contains information about the file system and the boot loader.
+Ques 1: MBR Breakup:
+Ans: In an ISO file, the Master Boot Record (MBR) is a small data structure located at the beginning of the file. The MBR typically consists of 512 bytes, and it plays a critical role in the boot process of a computer or virtual machine when the ISO file is used to create a bootable CD, DVD, or USB drive. The MBR contains information about the file system and the boot loader.
 
 The MBR structure is as follows:
 
@@ -9,3 +10,28 @@ Partition Table (64 bytes): The remaining 64 bytes of the MBR are allocated for 
 So, the 66 bytes after the MBR are part of the partition table, and this table provides information about the partition layout on the storage device. These partition entries are essential for the system to understand the structure of the storage device and to boot from it when it's a bootable ISO.
 
 It's worth noting that not all ISO files have this full MBR structure. ISO files primarily designed for optical discs may not include an MBR because optical discs use a different boot process. Bootable ISO files for USB drives or virtual machines are more likely to contain an MBR structure.
+
+
+Ques2 : paritition table data structure for 16 bytes
+Ans: A typical MBR (Master Boot Record) partition table entry is 16 bytes in size. The MBR partition table is used on BIOS-based systems to define the layout of partitions on a storage device. Each entry within the MBR partition table provides information about a single partition on the storage device. The structure of a 16-byte MBR partition table entry is as follows:
+
+Status Byte (1 byte): This byte is used to indicate the status of the partition. Common values include:
+
+0x00: Inactive (not bootable).
+0x80: Active (bootable).
+CHS (Cylinder-Head-Sector) Addressing (3 bytes): These bytes store the CHS values for the partition's starting sector. CHS addressing was used in older BIOS systems, but it has limitations in addressing large disks.
+
+Byte 1: Bits 0-5 represent the sector.
+Byte 2: Bits 0-7 represent the lower 8 bits of the cylinder.
+Byte 3: Bits 6 and 7 represent the upper 2 bits of the cylinder, and bits 0-5 represent the higher 6 bits of the sector.
+Partition Type (1 byte): This byte specifies the type of the partition (e.g., FAT, NTFS, Linux, etc.). The partition type is represented by a hexadecimal code.
+
+CHS Ending Addressing (3 bytes): These bytes store the CHS values for the partition's ending sector.
+
+LBA (Logical Block Addressing) Start Address (4 bytes): These bytes store the starting LBA address of the partition, which is used on modern systems to identify the partition's location on the disk.
+
+LBA Size (4 bytes): These bytes store the size of the partition in sectors, also using LBA addressing.
+
+It's important to note that the MBR partition table has limitations, including a maximum of four primary partitions or three primary partitions and one extended partition on a disk. Extended partitions can contain logical partitions, allowing for more than four partitions on a disk.
+
+Modern systems have largely transitioned to GPT (GUID Partition Table), which supports larger disk sizes and provides more flexibility than the MBR partitioning scheme. GPT partition entries are 128 bytes in size and offer better support for modern disk requirements.
