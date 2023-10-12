@@ -1,0 +1,3 @@
+* Partclone is a program similar to the well-known backup utility "Partition Image" a.k.a partimage. Partclone provides utilities to save and restore used blocks on a partition
+* For these file systems(eg: ext2, ext3, ext4, etc), only used blocks in partition are saved and restored by Partclone. For unsupported file system, sector-to-sector copy is done by dd in Clonezilla.
+  ref: https://clonezilla.org/
