@@ -30,3 +30,6 @@ link: https://superuser.com/questions/443445/how-can-i-get-virtualbox-to-run-at-
 8. cmake 
 link: https://iamsorush.com/posts/cpp-cmake-essential/
 link: https://iamsorush.com/posts/cpp-cmake-build/
+
+9. top command and keyboard shortcuts
+link: https://www.howtogeek.com/668986/how-to-use-the-linux-top-command-and-understand-its-output/
