@@ -1,0 +1,2 @@
+Refer below for steps:
+https://github.com/naseebpanghal/live-custom-ubuntu-from-scratch
