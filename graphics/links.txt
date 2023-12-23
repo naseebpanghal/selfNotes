@@ -10,3 +10,14 @@ link: https://www.javatpoint.com/what-is-a-video-card#:~:text=RAMDAC%20converts%
 4. libyami source code
 link: https://github.com/intel/libyami
 
+5. Create window without title bar, X11, openbox
+ref: https://stackoverflow.com/questions/31002962/create-window-without-title-bar/31003956#31003956
+Alter the Openbox settings in ~/.config/openbox/rc.xml. Inside the <applications> tag, I added the following code:
+
+<application class="*">
+  <decor>no</decor>
+  <position force="no"></position>
+</application>
+The class="*" means that all applications will follow these rules, you could fill in the class name of the application instead. The <decor>no</decor> removes the title bar, and <position force="no"></position> ensures that my own script is able to handle the positioning. You could also add another <application> tag after this one to make exceptions to this rule.
+
+Also, the window_attributes.override_redirect = True; is not needed anymore.
