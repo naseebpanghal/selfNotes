@@ -22,3 +22,4 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 3. Set the terminal prompt in Ubuntu to show only the working directory name instead of its full path
   - Find where your PS1 variable is set and change \w to \W.
   - This must be in your .bashrc file
+  - in case you are using this setting with title() function. It will only take effect from new fresh terminal. Because in existing termianl ORIG is set with small 'w' already if title command has run.
