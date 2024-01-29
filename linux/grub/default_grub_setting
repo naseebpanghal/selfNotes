@@ -2,3 +2,10 @@ https://gist.github.com/chaiyujin/c08e59752c3e238ff3b1a5098322b363
 
 grub user manual
 https://www.gnu.org/software/grub/manual/grub/grub.html
+
+###
+# disbale recovery mode from boot menu
+GRUB_DISABLE_RECOVERY="true"
+# below command 
+sudo update-grub
+Ref: https://askubuntu.com/questions/186176/how-to-disable-recovery-mode-single-user-mode
