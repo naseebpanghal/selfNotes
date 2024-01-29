@@ -12,3 +12,11 @@ https://stackoverflow.com/questions/16666089/whats-the-difference-between-git-me
 By adding systemd.debug-shell=1 to the kernel command line, a root shell will be available on TTY9 (crlt+alt+F9) to run the command above.
 and run 
 $ systemctl list-jobs
+
+5. disable TTYs 
+sudo vim /etc/X11/xorg.conf
+#add the following lines inside:
+
+Section "ServerFlags"
+    Option "DontVTSwitch" "true"
+EndSection
