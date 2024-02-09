@@ -1,0 +1,5 @@
+
+ofstream myVmdFile;
+myVmdFile.open("naseebEncodedImage.h264", std::ios_base::app);
+myVmdFile.write((const char*)info.data, info.frame_length);
+
