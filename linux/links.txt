@@ -33,3 +33,6 @@ link: https://iamsorush.com/posts/cpp-cmake-build/
 
 9. top command and keyboard shortcuts
 link: https://www.howtogeek.com/668986/how-to-use-the-linux-top-command-and-understand-its-output/
+
+10. create custom ubuntu from scratch
+link: https://itnext.io/how-to-create-a-custom-ubuntu-live-from-scratch-dd3b3f213f81
