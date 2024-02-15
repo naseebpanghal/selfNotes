@@ -5,6 +5,7 @@ https://www.gnu.org/software/grub/manual/grub/grub.html
 
 # choose default kernel in /etc/default/grub
 GRUB_DEFAULT='Advanced options for Ubuntu>Ubuntu, with Linux 5.15.0-58-lowlatency'
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash biosnames=0 net.ifnames=0 ipv6.disable=1"
 
 ###
 # disbale recovery mode from boot menu
